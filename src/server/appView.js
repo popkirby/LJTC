@@ -63,7 +63,7 @@ export default function*() {
   }
 
 
-  const data = {title: 'LTJ', body: appString};
+  const data = {title: 'LJTC', body: appString};
 
   this.body = template(data);
 }
