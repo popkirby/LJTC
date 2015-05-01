@@ -10,7 +10,7 @@ export function generateRow(url, tweetHeader, header, ja, en, key, className='')
         text: `[${tweetHeader}] ${header}: ${infoString(ja)} / ${infoString(en)}`,
         url: url,
         hashtags: ['ljtc']
-      }) }><img src='/images/Twitter_logo_blue_16.png' /></a></td>
+      }) } target='_blank'><img src='/images/Twitter_logo_blue_16.png' /></a></td>
     </tr>
   );
 }
