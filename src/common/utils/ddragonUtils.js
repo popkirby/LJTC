@@ -9,6 +9,7 @@ export function getDDragonUrl(path) {
 }
 
 export function infoString(str) {
+  if (typeof str !== 'string') return '';
   return str.replace(/<.*?>/g, '\n').replace(/\n+/g, '\n').trim();
 }
 
