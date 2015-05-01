@@ -2,19 +2,21 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { getDDragonUrl, infoString } from '../utils/ddragonUtils';
 import { LOL_VERSION } from '../config';
+import { generateRow } from '../utils/tableUtils';
+import { contextTypes } from 'react-props-decorators';
 
-
+@contextTypes({
+  router: React.PropTypes.func
+})
 class ChampionCompareTable extends React.Component {
+
+  _generateRow = (...args) => {
+    return generateRow(this.context.router.getCurrentPath(), this.props.en.get('name'), ...args);
+  }
 
   _tableContent = (header, key) => {
     const { ja, en } = this.props;
-    return (
-      <tr>
-        <th>{ header }</th>
-        <td>{ ja.get(key) }</td>
-        <td>{ en.get(key) }</td>
-      </tr>
-    );
+    return this._generateRow(header, ja.get(key), en.get(key), header, en.get('name'));
   }
 
   _getSkins = () => {
@@ -25,13 +27,7 @@ class ChampionCompareTable extends React.Component {
     let num = 0;
 
     skins.forEach((v) => {
-      rows.push(
-        <tr key={num}>
-          <th>Skin {num + 1}</th>
-          <td>{ ja.get('skins').get(num).get('name') }</td>
-          <td>{ v.get('name') }</td>
-        </tr>
-      );
+      rows.push(this._generateRow(`Skin ${num + 1}`, ja.get('skins').get(num).get('name'), v.get('name'), num));
       num += 1;
     });
 
@@ -48,47 +44,20 @@ class ChampionCompareTable extends React.Component {
     let rows = [];
     let num = 0;
 
-    rows.push(
-      <tr key={'passive'}>
-        <th>Passive</th>
-        <td className='white-pre'>{ jaPassive.get('name') }</td>
-        <td className='white-pre'>{ enPassive.get('name') }</td>
-      </tr>
-    );
+    rows.push(this._generateRow('Passive', jaPassive.get('name'), enPassive.get('name'), 'passive'));
 
-    rows.push(
-      <tr key={'passiveinfo'} className='info'>
-        <th></th>
-        <td className='white-pre'>{ infoString(jaPassive.get('description')) }</td>
-        <td className='white-pre'>{ infoString(enPassive.get('description')) }</td>
-      </tr>
-    );
+    rows.push(this._generateRow('', jaPassive.get('description'), enPassive.get('description'), 'passiveinfo', 'info'));
 
 
     const jaSpells = ja.get('spells');
 
     spells.forEach((v) => {
-      rows.push(
-        <tr key={num}>
-          <th>Spell {num + 1}</th>
-          <td>{ jaSpells.get(num).get('name') }</td>
-          <td>{ v.get('name') }</td>
-        </tr>
-      );
-
-      rows.push(
-        <tr key={num + 100} className='info'>
-          <th></th>
-          <td className='white-pre'>{ infoString(jaSpells.get(num).get('description')) }</td>
-          <td className='white-pre'>{ infoString(v.get('description')) }</td>
-        </tr>
-      );
-
+      rows.push(this._generateRow(`Spell ${num + 1}`, jaSpells.get(num).get('name'), v.get('name'), num));
+      rows.push(this._generateRow('', jaSpells.get(num).get('description'), v.get('description'), num + 100, 'info'));
       num += 1;
     });
 
     return rows;
- 
   }
 
   render() {
@@ -103,6 +72,7 @@ class ChampionCompareTable extends React.Component {
         </th>
         <th>ja</th>
         <th>en</th>
+        <th></th>
       </thead>
     );
 

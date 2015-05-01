@@ -17,14 +17,17 @@ class PanelItem extends React.Component {
 
   render() {
     const { ja, en, imageUrl } = this.props;
+    let { xs, sm } = this.props;
+    if (typeof xs === 'undefined') xs = 6;
+    if (typeof sm === 'undefined') sm = 4;
 
     return (
-      <Col xs={6} sm={4}>
-      <Panel className='clickable-item' onClick={this._handleClick}>
+      <Col xs={xs} sm={sm} className='col-xs-height col-full-height'>
+        <Panel className='clickable-item' onClick={this._handleClick}>
           <div className='center-block text-center'>
             <img src={ imageUrl }
             className='img-rounded'
-            width='25%' height='25%' />
+            width='48' height='48' />
           </div>
           <div className='text-center'>
             { ja }<br />{ en }

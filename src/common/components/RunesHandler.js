@@ -25,7 +25,7 @@ class RunesHandler extends React.Component {
     return (
       <PanelItem ja={ ja.get('name') } en={ en.get('name') } href={ href }
                  imageUrl={ imageUrl } runeId={ runeId }
-                 key={ runeId } />
+                 key={ runeId } sm={6} />
     );
   }
 

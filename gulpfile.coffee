@@ -51,6 +51,10 @@ gulp.task 'clean',
 
 gulp.task 'client', () -> compileClientJs()
 
+gulp.task 'image', () ->
+  gulp.src 'src/client/images/*.*'
+      .pipe gulp.dest 'build/client/images'
+
 gulp.task 'common', () ->
   gulp.src 'src/common/**/*.*'
       .pipe $.changed 'build/common'
@@ -73,7 +77,7 @@ gulp.task 'server', () ->
       .pipe gulp.dest 'build/server'
 
 gulp.task 'build', ['clean'], (cb) ->
-  runSequence ['common', 'style', 'server', 'client'], cb
+  runSequence ['common', 'style', 'server', 'client', 'image'], cb
 
 
 gulp.task 'watch:build', (cb) ->

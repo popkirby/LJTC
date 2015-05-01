@@ -41,7 +41,9 @@ class ChampionsHandler extends React.Component {
         render={({ ja, en }) => (
           <Grid>
             <Row>
-            { ja.map((v, k) => ( this._createItem(v, en.get(k), k) )).toArray() }
+              <div className='row-same-height row-full-height'>
+                { ja.map((v, k) => ( this._createItem(v, en.get(k), k) )).toArray() }
+              </div>
             </Row>
           </Grid>
         )}

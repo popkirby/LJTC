@@ -2,20 +2,23 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import { getDDragonUrl, infoString } from '../utils/ddragonUtils';
 import { LOL_VERSION } from '../config';
+import { generateRow } from '../utils/tableUtils';
+import { contextTypes } from 'react-props-decorators';
 
-
+@contextTypes({
+  router: React.PropTypes.func
+})
 class SummonerSpellCompareTable extends React.Component {
+
+  _generateRow = (...args) => {
+    return generateRow(this.context.router.getCurrentPath(), this.props.en.get('name'), ...args);
+  }
 
   _tableContent = (header, key) => {
     const { ja, en } = this.props;
-    return (
-      <tr>
-        <th>{ header }</th>
-        <td className='white-pre'>{ infoString(ja.get(key)) }</td>
-        <td className='white-pre'>{ infoString(en.get(key)) }</td>
-      </tr>
-    );
+    return this._generateRow(header, ja.get(key), en.get(key));
   }
+
   render() {
     const { ja, en } = this.props;
 
@@ -28,6 +31,7 @@ class SummonerSpellCompareTable extends React.Component {
         </th>
         <th>ja</th>
         <th>en</th>
+        <th></th>
       </thead>
     );
 
