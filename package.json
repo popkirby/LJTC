@@ -1,0 +1,51 @@
+{
+  "name": "lol-translate-ja",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "popkirby",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.0.2",
+    "browser-sync": "^2.6.4",
+    "browserify": "^9.0.8",
+    "coffee-script": "^1.9.1",
+    "del": "^1.1.1",
+    "event-stream": "^3.3.0",
+    "gulp": "^3.8.11",
+    "gulp-changed": "^1.2.1",
+    "gulp-if": "^1.2.5",
+    "gulp-less": "^3.0.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "jsonfile": "^2.0.0",
+    "request": "^2.55.0",
+    "run-sequence": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.1.1"
+  },
+  "dependencies": {
+    "babel": "^5.1.9",
+    "bootstrap": "^3.3.4",
+    "classnames": "^1.2.1",
+    "flummox": "^3.5.2",
+    "immutable": "^3.7.2",
+    "isomorphic-fetch": "^2.0.2",
+    "koa": "^0.19.1",
+    "koa-router": "^4.3.2",
+    "koa-static": "^1.4.9",
+    "lodash": "^3.6.0",
+    "react": "^0.13.1",
+    "react-bootstrap": "^0.20.3",
+    "react-props-decorators": "^0.1.0",
+    "react-router": "^0.13.2",
+    "react-router-bootstrap": "^0.13.0"
+  }
+}
