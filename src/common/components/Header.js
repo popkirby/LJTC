@@ -11,6 +11,8 @@ class Header extends React.Component {
         <Nav eventKey={0}>
           <NavItemLink to='champions'>Champions</NavItemLink>
           <NavItemLink to='items'>Items</NavItemLink>
+          <NavItemLink to='runes'>Runes</NavItemLink>
+          <NavItemLink to='spells'>Spells</NavItemLink>
         </Nav>
       </Navbar>
     );
