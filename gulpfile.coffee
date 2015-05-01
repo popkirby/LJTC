@@ -47,7 +47,7 @@ compileClientJs = () ->
   bundle()
 
 gulp.task 'clean',
-  del.bind(null, ['.tmp', 'build/*'], {dot: true})
+  del.bind(null, ['.tmp', 'build/client/*', 'build/common/*', 'build/server/*'], {dot: true})
 
 gulp.task 'client', () -> compileClientJs()
 
