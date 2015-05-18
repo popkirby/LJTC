@@ -7,7 +7,7 @@ class HomeHandler extends React.Component {
     return (
       <div>
         <Jumbotron>
-          <h1>LJTC</h1><h2>LoL Japanese Transration Comparer</h2>
+          <h1>LJTC</h1><h2>LoL Japanese Translation Comparer</h2>
         </Jumbotron>
           <p><a href='https://developer.riotgames.com/docs/static-data'>LoL Static Data API</a>から
           取得した情報を元に、チャンピオン・アイテムの英語・日本語の比較を表示するサイトです。

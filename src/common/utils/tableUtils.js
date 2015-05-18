@@ -21,5 +21,5 @@ function infoString(str) {
 }
 
 function generateTweetUrl({text, url, hashtags}) {
-  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${hashtags.join(',')}`;
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('http://ljtc.pocka.info' + url)}&hashtags=${hashtags.join(',')}`;
 }

@@ -30,6 +30,7 @@ compileClientJs = () ->
 
   bundler.add './src/client/app.js'
   bundler.transform 'babelify'
+  bundler.transform 'envify'
 
   bundle = () ->
     bundler.bundle()
