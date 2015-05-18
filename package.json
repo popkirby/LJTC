@@ -36,6 +36,7 @@
     "babel": "^5.1.9",
     "bootstrap": "^3.3.4",
     "classnames": "^1.2.1",
+    "debug": "^2.2.0",
     "flummox": "^3.5.2",
     "immutable": "^3.7.2",
     "isomorphic-fetch": "^2.0.2",

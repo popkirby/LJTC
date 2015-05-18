@@ -13,8 +13,10 @@ class RunesHandler extends React.Component {
 
   static async routerWillRun({ flux, state }) {
     const runeActions = flux.getActions('runes');
-
-    return [await runeActions.getRunes('ja_JP'), await runeActions.getRunes('en_US')];
+    const runeStore = flux.getStore('runes');
+    
+    if (!runeStore.getRunes('ja_JP'))
+      return [await runeActions.getRunes('ja_JP'), await runeActions.getRunes('en_US')];
   }
 
   _createItem = (ja, en, runeId) => {

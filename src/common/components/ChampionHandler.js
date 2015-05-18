@@ -14,8 +14,10 @@ class ChampionHandler extends React.Component {
   static async routerWillRun({ flux, state }) {
     const { name } = state.params;
     const championActions = flux.getActions('champions');
+    const championStore = flux.getStore('champions');
 
-    return [await championActions.getChampion('ja_JP', name), await championActions.getChampion('en_US', name)];
+    if (!championStore.getChampion('ja_JP', name))
+      return [await championActions.getChampion('ja_JP', name), await championActions.getChampion('en_US', name)];
   }
 
   render() {

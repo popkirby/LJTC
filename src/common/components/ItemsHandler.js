@@ -13,8 +13,10 @@ class ItemsHandler extends React.Component {
 
   static async routerWillRun({ flux, state }) {
     const itemActions = flux.getActions('items');
+    const itemStore = flux.getStore('items');
 
-    return [await itemActions.getItems('ja_JP'), await itemActions.getItems('en_US')];
+    if (!itemStore.getItems('ja_JP'))
+      return [await itemActions.getItems('ja_JP'), await itemActions.getItems('en_US')];
   }
 
   _createItem = (ja, en, itemId) => {

@@ -13,8 +13,10 @@ class ChampionsHandler extends React.Component {
 
   static async routerWillRun({ flux, state }) {
     const championActions = flux.getActions('champions');
+    const championStore = flux.getStore('champions');
 
-    return [await championActions.getChampions('ja_JP'), await championActions.getChampions('en_US')];
+    if (!championStore.getChampions('ja_JP'))
+      return [await championActions.getChampions('ja_JP'), await championActions.getChampions('en_US')];
   }
 
   _createItem = (ja, en, name) => {

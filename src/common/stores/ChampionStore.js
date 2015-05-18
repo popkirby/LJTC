@@ -35,7 +35,11 @@ class ChampionStore extends Store {
   }
 
   getChampion(lang, name) {
-    return this.state.champion.get(lang).get(name);
+    if (this.state.champion.has(lang)) {
+      return this.state.champion.get(lang).get(name);
+    } else {
+      return (void 0);
+    }
   }
 
 }

@@ -13,8 +13,10 @@ class SummonerSpellsHandler extends React.Component {
 
   static async routerWillRun({ flux, state }) {
     const summonerSpellActions = flux.getActions('summonerSpells');
+    const summonerSpellStore = flux.getStore('summonerSpells')
 
-    return [await summonerSpellActions.getSummonerSpells('ja_JP'), await summonerSpellActions.getSummonerSpells('en_US')];
+    if (!summonerSpellStore.getSummonerSpells('ja_JP'))
+      return [await summonerSpellActions.getSummonerSpells('ja_JP'), await summonerSpellActions.getSummonerSpells('en_US')];
   }
 
   _createItem = (ja, en, spellId) => {

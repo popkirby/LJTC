@@ -8,7 +8,10 @@ import Flux from '../common/Flux'
 import performRouteHandlerStaticMethod from '../common/utils/performRouteHandlerStaticMethod';
 import FluxComponent from 'flummox/component';
 
+import debug from 'debug';
+
 window.React = React;
+window.myDebug = debug;
 
 const flux = new Flux();
 
